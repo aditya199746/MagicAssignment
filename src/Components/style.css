@@ -1,0 +1,47 @@
+.dropdown {
+  width: 200px;
+}
+
+.wid {
+  margin-top: 10px;
+  width: 100px;
+  height: 25px;
+}
+
+.flex {
+  background-color: blanchedalmond;
+  display: flex;
+  justify-content: space-between;
+}
+
+.circle {
+  border: 1px solid black;
+  height: 25px;
+  width: 25px;
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+  /* animation-name: example;
+  animation-duration: 4s; */
+}
+
+.fade {
+  animation-name: example;
+  animation-duration: 4s;
+}
+
+@keyframes example {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: yellow;
+  }
+}
+
+.rightDiv {
+    width: 70%;
+  background-color: coral;
+  display: flex;
+  justify-content: space-between;
+}
