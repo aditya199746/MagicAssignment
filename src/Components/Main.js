@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Select from 'react-select';
 import "./style.css"
 import Right from "./Right";
+import {useDispatch} from 'react-redux'
+import {AnimateActionFalse} from "./Actions/index"
 const Main = () => {
     const options = [
   {value:0,label:0},
@@ -16,13 +18,14 @@ const Main = () => {
   {value:9,label:9},
   {value:10,label:10}
 ];
+const dispatch=useDispatch();
 const [selectedOption, setSelectedOption]=useState(0);
-const [animi,setAnimi]=useState(false)
+//const [animi,setAnimi]=useState(false)
 function AnimateBtn()
 {
     if(selectedOption>0)
      return <button 
-        onClick={()=>{setAnimi(true)}}
+        onClick={()=>dispatch(AnimateActionFalse(true))}//setAnimi(true)
         
      >animate</button>
 }
@@ -44,12 +47,13 @@ const handleSelect=(e)=>{
                     />
                 </div>
                 
-                {AnimateBtn()}
+                {AnimateBtn()
+                }
                 
                 
             </div>
 
-            <div className="rightDiv"><Right val1={selectedOption} val2={animi}/></div>
+            <div className="rightDiv"><Right val1={selectedOption} /></div>
 
         </div>
             

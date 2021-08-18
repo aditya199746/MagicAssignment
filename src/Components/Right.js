@@ -1,6 +1,10 @@
 import React from 'react'
 import "./style.css"
-function Right({val1,val2,onChildClick}) {
+import {useDispatch,useSelector} from 'react-redux'
+import {AnimateAction} from "./Actions/index"
+
+function Right({val1,val2}) {
+    const dispatch=useDispatch();
     console.log(val1)
     const value=val1;
     let nameClass=val2;
@@ -14,13 +18,16 @@ function Right({val1,val2,onChildClick}) {
 
     function handleClick(event)
     {
-        onChildClick(false)
+        dispatch(AnimateAction(false))
     }
+
+    const selector=useSelector(state=>state.ReducerFunction)
 
     return (
         <>
             {arr.map(ele=>{
-                return <div className={`circle ${nameClass ? 'fade':''}`} key={ele}
+                console.log(selector)
+                return <div className={`circle ${selector ? 'fade':''}`} key={ele}
                  onAnimationEnd={handleClick}
          
                 ></div>
